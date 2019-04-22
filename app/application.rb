@@ -11,8 +11,8 @@ class Application
     # Your application should only accept the /items/<ITEM NAME> route. Everything else should 404
     if req.path.match(/items/)
 
-      item_name = req.path.split("/items/").last
-      item = @@items.find{|i| i.name == item_name}
+      item_name = req.path.split("/items/").last # turn /items/item_name into an item_name page
+      item = @@items.find{|i| i.name == item_name} # if it matches something that exists in our @@items, then we can output the below
 
       # IF a user requests an item that you don't have, then return a 400 and an error message
       if item.nil?
